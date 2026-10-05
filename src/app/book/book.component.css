@@ -1,0 +1,197 @@
+/* ================================
+   Book Page
+================================ */
+
+/* Search */
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* No Data */
+
+.no-data {
+  text-align: center;
+  padding: 30px;
+
+  color: var(--text-light);
+
+  font-size: 16px;
+}
+
+/* Action Buttons */
+
+.book-actions-cell {
+  white-space: nowrap;
+}
+
+/* Detail Button */
+
+.btn-detail {
+  padding: 8px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background-color: var(--white);
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.btn-detail:hover {
+  background-color: #eef2ff;
+  border-color: var(--primary);
+}
+
+/* Edit Button */
+
+.btn-edit {
+  margin-right: 5px;
+
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #f59e0b;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.btn-edit:hover {
+  background-color: #d97706;
+}
+
+/* Pagination */
+
+.btn-page {
+  min-width: 36px;
+  height: 36px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background-color: var(--white);
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.btn-page:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-page.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+  /* Search */
+
+  .search-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-box .form-input {
+    width: 100%;
+  }
+
+  .search-box .btn {
+    width: 100%;
+  }
+
+  /* Table */
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table {
+    min-width: 700px;
+  }
+
+  /* Action */
+
+  .book-actions-cell {
+    white-space: nowrap;
+  }
+
+  /* Pagination */
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Search */
+
+  .search-box {
+    margin-bottom: 15px;
+  }
+
+  /* No Data */
+
+  .no-data {
+    padding: 20px;
+
+    font-size: 14px;
+  }
+
+  /* Detail Button */
+
+  .btn-detail,
+  .btn-edit,
+  .book-actions-cell .btn-danger {
+    padding: 7px 10px;
+
+    font-size: 13px;
+  }
+
+  /* Pagination */
+
+  .pagination {
+    gap: 5px;
+  }
+
+  .btn-page {
+    min-width: 34px;
+    height: 34px;
+
+    padding: 0 8px;
+
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,66 @@
+/* ================================
+   Register Container
+================================ */
+
+.register-container {
+  width: 100%;
+  margin: 80px auto;
+}
+
+/* ================================
+   Register Header
+================================ */
+
+.register-card .page-header {
+  display: block;
+  text-align: center;
+}
+
+.register-card .page-header h2 {
+  margin: 0 0 8px;
+}
+
+.register-card .page-header p {
+  margin: 0;
+}
+
+/* ================================
+   Error Message
+================================ */
+
+.error-text {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+/* ================================
+   Register Button
+================================ */
+
+.register-button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .register-container {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .register-container {
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+}

@@ -1,0 +1,103 @@
+<div class="page-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>User Management</h2>
+      <p>จัดการข้อมูลผู้ใช้งาน</p>
+    </div>
+
+    <button type="button" class="btn btn-primary" [routerLink]="['/user/add']">
+      + Add User
+    </button>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="ค้นหา ID, Username, Name หรือ Level"
+      [(ngModel)]="searchText"
+      (input)="filterUsers()"
+    />
+  </div>
+
+  <!-- Error Message -->
+  @if (errorMessage) {
+    <div class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <!-- Success Message -->
+  @if (successMessage) {
+    <div class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  }
+
+  <!-- Loading -->
+  @if (isLoading) {
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">กำลังโหลดข้อมูล User...</div>
+    </div>
+  } @else {
+    <!-- User Table -->
+    <div class="table-card">
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Level</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @if (filteredUsers.length === 0) {
+              <tr>
+                <td colspan="5" class="no-data">ไม่พบข้อมูลผู้ใช้งาน</td>
+              </tr>
+            } @else {
+              @for (user of filteredUsers; track user.id) {
+                <tr>
+                  <td>{{ user.id }}</td>
+
+                  <td>{{ user.usr }}</td>
+
+                  <td>{{ user.name }}</td>
+
+                  <td>{{ user.level }}</td>
+
+                  <td class="action-buttons">
+                    <button
+                      type="button"
+                      class="btn btn-edit"
+                      [routerLink]="['/user/edit', user.id]"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn btn-delete"
+                      (click)="deleteUser(user.id, user.name)"
+                      [disabled]="deletingUserId !== null"
+                    >
+                      {{
+                        deletingUserId === user.id ? "Deleting..." : "Delete"
+                      }}
+                    </button>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+</div>

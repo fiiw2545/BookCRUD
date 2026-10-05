@@ -1,0 +1,108 @@
+<div class="page-container">
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>Add User</h2>
+      <p>เพิ่มผู้ใช้งานใหม่</p>
+    </div>
+  </div>
+
+  @if (errorMessage) {
+    <div class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <form class="card" #userForm="ngForm" (ngSubmit)="addUser()">
+    <div class="form-group">
+      <label>Username</label>
+
+      <input
+        type="text"
+        class="form-input"
+        [(ngModel)]="usr"
+        name="usr"
+        #usrInput="ngModel"
+        required
+        minlength="4"
+        placeholder="กรอก Username"
+      />
+
+      @if (usrInput.touched && usrInput.hasError("required")) {
+        <p class="error-message">กรุณากรอก Username</p>
+      }
+
+      @if (usrInput.touched && usrInput.hasError("minlength")) {
+        <p class="error-message">Username ต้องมีอย่างน้อย 4 ตัวอักษร</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+
+      <input
+        type="password"
+        class="form-input"
+        [(ngModel)]="pwd"
+        name="pwd"
+        #pwdInput="ngModel"
+        required
+        minlength="6"
+        placeholder="กรอก Password"
+      />
+
+      @if (pwdInput.touched && pwdInput.hasError("required")) {
+        <p class="error-message">กรุณากรอก Password</p>
+      }
+
+      @if (pwdInput.touched && pwdInput.hasError("minlength")) {
+        <p class="error-message">Password ต้องมีอย่างน้อย 6 ตัวอักษร</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+
+      <input
+        type="text"
+        class="form-input"
+        [(ngModel)]="name"
+        name="name"
+        #nameInput="ngModel"
+        required
+        placeholder="กรอกชื่อ"
+      />
+
+      @if (nameInput.touched && nameInput.hasError("required")) {
+        <p class="error-message">กรุณากรอกชื่อ</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Level</label>
+
+      <select [(ngModel)]="level" name="level">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="cancel()"
+        [disabled]="isSaving"
+      >
+        Cancel
+      </button>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="userForm.invalid || isSaving"
+      >
+        Add User
+      </button>
+    </div>
+  </form>
+</div>

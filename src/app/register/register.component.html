@@ -1,0 +1,105 @@
+<div class="register-container">
+  <div class="card register-card">
+    <div class="page-header">
+      <h2>สมัครสมาชิก</h2>
+      <p>สร้างบัญชีสำหรับเข้าใช้งาน BookCRUD</p>
+    </div>
+
+    @if (successMessage) {
+      <div class="alert alert-success">
+        {{ successMessage }}
+      </div>
+    }
+
+    @if (errorMessage) {
+      <div class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <!-- Username -->
+      <div class="form-group">
+        <label>Username</label>
+
+        <input
+          type="text"
+          class="form-input"
+          formControlName="usr"
+          placeholder="กรอก Username"
+        />
+
+        @if (
+          registerForm.get("usr")?.touched && registerForm.get("usr")?.invalid
+        ) {
+          <small class="error-text">
+            @if (registerForm.get("usr")?.errors?.["required"]) {
+              กรุณากรอก Username
+            }
+
+            @if (registerForm.get("usr")?.errors?.["minlength"]) {
+              Username ต้องมีอย่างน้อย 4 ตัวอักษร
+            }
+          </small>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>Password</label>
+
+        <input
+          type="password"
+          class="form-input"
+          formControlName="pwd"
+          placeholder="กรอก Password"
+        />
+
+        @if (
+          registerForm.get("pwd")?.touched && registerForm.get("pwd")?.invalid
+        ) {
+          <small class="error-text">
+            @if (registerForm.get("pwd")?.errors?.["required"]) {
+              กรุณากรอก Password
+            }
+
+            @if (registerForm.get("pwd")?.errors?.["minlength"]) {
+              Password ต้องมีอย่างน้อย 6 ตัวอักษร
+            }
+          </small>
+        }
+      </div>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label>ชื่อ</label>
+
+        <input
+          type="text"
+          class="form-input"
+          formControlName="name"
+          placeholder="กรอกชื่อ"
+        />
+
+        @if (
+          registerForm.get("name")?.touched && registerForm.get("name")?.invalid
+        ) {
+          <small class="error-text"> กรุณากรอกชื่อ </small>
+        }
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="btn btn-primary register-button"
+        [disabled]="registerForm.invalid || isLoading"
+      >
+        @if (isLoading) {
+          กำลังสมัครสมาชิก...
+        } @else {
+          สมัครสมาชิก
+        }
+      </button>
+    </form>
+  </div>
+</div>

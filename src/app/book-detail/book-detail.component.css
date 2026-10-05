@@ -1,0 +1,178 @@
+/* ================================
+   Book Detail
+================================ */
+
+.detail-card {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 20px auto;
+
+  padding: 30px;
+
+  background-color: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Title */
+
+.detail-title {
+  margin: 0 0 25px;
+
+  text-align: center;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+/* Detail Item */
+
+.detail-item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+/* Label */
+
+.detail-item strong {
+  min-width: 80px;
+
+  color: var(--text);
+
+  font-size: 14px;
+}
+
+/* Value */
+
+.detail-item span {
+  color: var(--text-light);
+
+  text-align: right;
+
+  word-break: break-word;
+}
+
+/* Actions */
+
+.detail-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+/* Loading */
+
+.detail-loading {
+  text-align: center;
+
+  padding: 20px;
+
+  color: var(--text-light);
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .detail-card {
+    padding: 20px;
+
+    margin: 10px auto;
+  }
+
+  .detail-title {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+  }
+
+  .detail-item {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
+    padding: 12px 0;
+  }
+
+  .detail-item strong {
+    min-width: auto;
+  }
+
+  .detail-item span {
+    text-align: left;
+
+    width: 100%;
+  }
+
+  .detail-actions {
+    flex-direction: column;
+
+    margin-top: 20px;
+  }
+
+  .detail-actions .btn {
+    width: 100%;
+  }
+}
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.detail-error p {
+  margin: 0 0 20px;
+  color: var(--danger);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.detail-error .btn {
+  min-width: 160px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .detail-error {
+    padding: 30px 15px;
+  }
+
+  .detail-error .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}

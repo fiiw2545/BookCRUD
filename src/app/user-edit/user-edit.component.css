@@ -1,0 +1,117 @@
+.page-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 0 20px;
+} /* Header */
+.page-header {
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+.page-header h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.page-header p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+} /* Card */
+.card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+} /* Form */
+.form-group {
+  margin-bottom: 22px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.form-group input::placeholder {
+  color: #9ca3af;
+} /* Focus */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+} /* Button Area */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid #e5e7eb;
+} /* Buttons */
+.form-actions .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+.form-actions .btn:active {
+  transform: scale(0.98);
+} /* Update */
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+} /* Cancel */
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+.error-message {
+  margin: 6px 0 0;
+  color: #dc2626;
+  font-size: 13px;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .page-container {
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+  .card {
+    padding: 22px;
+  }
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  .form-actions .btn {
+    width: 100%;
+  }
+}

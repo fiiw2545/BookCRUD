@@ -1,0 +1,68 @@
+<div class="login-container">
+  <div class="card login-card">
+    <div class="page-header">
+      <h2>เข้าสู่ระบบ</h2>
+      <p>เข้าสู่ระบบสำหรับใช้งาน BookCRUD</p>
+    </div>
+    <!-- Success -->
+    @if (successMessage) {
+      <p class="login-success">
+        {{ successMessage }}
+      </p>
+    }
+
+    <!-- Error -->
+    @if (errorMessage) {
+      <p class="login-error">
+        {{ errorMessage }}
+      </p>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Username -->
+      <div class="login-form-group">
+        <label> Username </label>
+
+        <input
+          type="text"
+          class="form-input"
+          formControlName="usr"
+          placeholder="กรอก Username"
+        />
+
+        @if (loginForm.controls.usr.touched && loginForm.controls.usr.invalid) {
+          <p class="validation-error">กรุณากรอก Username</p>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="login-form-group">
+        <label> Password </label>
+
+        <input
+          type="password"
+          class="form-input"
+          formControlName="pwd"
+          placeholder="กรอก Password"
+        />
+
+        @if (loginForm.controls.pwd.touched && loginForm.controls.pwd.invalid) {
+          <p class="validation-error">กรุณากรอก Password</p>
+        }
+      </div>
+
+      <!-- Login Button -->
+      <button
+        type="submit"
+        class="btn btn-primary login-button"
+        [disabled]="isLoading"
+      >
+        @if (isLoading) {
+          กำลังเข้าสู่ระบบ...
+        } @else {
+          เข้าสู่ระบบ
+        }
+      </button>
+    </form>
+  </div>
+</div>

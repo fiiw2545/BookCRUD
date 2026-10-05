@@ -1,0 +1,55 @@
+<div class="page-container">
+  <div class="detail-card">
+    <h2 class="detail-title">Book Detail</h2>
+
+    @if (isLoading) {
+      <p class="detail-loading">Loading...</p>
+    } @else if (book) {
+      <div class="detail-item">
+        <strong>ID:</strong>
+        <span>{{ book.id }}</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>ISBN:</strong>
+        <span>{{ book.isbn }}</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>Name:</strong>
+        <span>{{ book.name }}</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>Category:</strong>
+        <span>{{ book.categoryName }}</span>
+      </div>
+
+      <div class="detail-item">
+        <strong>Price:</strong>
+        <span>{{ book.price }}</span>
+      </div>
+
+      <div class="detail-actions">
+        <button type="button" class="btn btn-secondary" (click)="goBack()">
+          Back
+        </button>
+        @if (userLevel === "ADMIN") {
+          <button type="button" class="btn btn-primary" (click)="editBook()">
+            Edit
+          </button>
+        }
+      </div>
+    } @else {
+      <div class="detail-error">
+        <p>
+          {{ errorMessage }}
+        </p>
+
+        <button type="button" class="btn btn-secondary" (click)="goBack()">
+          Back to Book List
+        </button>
+      </div>
+    }
+  </div>
+</div>

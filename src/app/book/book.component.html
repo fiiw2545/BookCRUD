@@ -1,0 +1,147 @@
+<div class="page-container">
+  <div class="page-header">
+    <h2>Book List</h2>
+    @if (userLevel === "ADMIN") {
+      <a routerLink="/book/add" class="btn btn-primary">+ Add Book</a>
+    }
+  </div>
+  <div class="search-box">
+    <input
+      class="form-input"
+      type="text"
+      placeholder="Search NameBook..."
+      [(ngModel)]="searchText"
+      (input)="filterBooks()"
+    />
+
+    @if (searchText) {
+      <button type="button" class="btn-clear" (click)="clearSearch()">
+        Clear
+      </button>
+    }
+  </div>
+
+  @if (successMessage) {
+    <div class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  }
+  @if (errorMessage) {
+    <div class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (isLoading) {
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+
+      <div class="loading-text">กำลังโหลดข้อมูลหนังสือ...</div>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>ISBN</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if (filteredBooks.length === 0) {
+            <tr>
+              <td colspan="6">
+                <div class="empty-state">
+                  <div class="empty-state-icon">📚</div>
+
+                  @if (searchText) {
+                    <div class="empty-state-title">ไม่พบหนังสือที่ค้นหา</div>
+
+                    <div class="empty-state-description">
+                      ลองค้นหาด้วยชื่อหนังสือหรือ ISBN อื่น
+                    </div>
+                  } @else {
+                    <div class="empty-state-title">ยังไม่มีข้อมูลหนังสือ</div>
+
+                    <div class="empty-state-description">
+                      เริ่มต้นด้วยการเพิ่มหนังสือเล่มแรก
+                    </div>
+                  }
+                </div>
+              </td>
+            </tr>
+          } @else {
+            @for (book of paginatedBooks; track book.id) {
+              <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.name }}</td>
+                <td>
+                  {{ book.categoryName }}
+                </td>
+                <td>{{ book.price }}</td>
+
+                <td>
+                  <button [routerLink]="['/book', book.id]" class="btn-detail">
+                    Detail
+                  </button>
+                  @if (userLevel === "ADMIN") {
+                    <button
+                      [routerLink]="['/book/edit', book.id]"
+                      class="btn-edit"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      class="btn btn-danger"
+                      (click)="DeleteBook(book.id, book.name)"
+                      [disabled]="deletingBookId !== null"
+                    >
+                      {{
+                        deletingBookId === book.id ? "Deleting..." : "Delete"
+                      }}
+                    </button>
+                  }
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button
+        class="btn-page"
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+
+      @for (page of pages; track page) {
+        <button
+          class="btn-page"
+          [class.active]="currentPage === page"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+      }
+
+      <button
+        class="btn-page"
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages"
+      >
+        Next
+      </button>
+    </div>
+  }
+</div>

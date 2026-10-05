@@ -1,0 +1,161 @@
+/* ================================
+   Page Header
+================================ */
+
+.page-header-content p {
+  margin: 6px 0 0;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.table-card {
+  width: 100%;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  min-width: 800px;
+}
+
+/* ================================
+   Search
+================================ */
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 400px;
+
+  height: 42px;
+  padding: 0 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background-color: var(--white);
+
+  font-size: 14px;
+  color: var(--text);
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+/* ================================
+   Table
+================================ */
+
+.table-container {
+  overflow-x: auto;
+}
+
+/* ================================
+   Action Buttons
+================================ */
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-buttons .btn {
+  min-height: 34px;
+  padding: 0 12px;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.action-buttons .btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Edit */
+
+.btn-edit {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-edit:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Delete */
+
+.btn-delete {
+  background-color: var(--danger);
+  color: var(--white);
+}
+
+.btn-delete:hover {
+  background-color: #b91c1c;
+}
+
+/* ================================
+   No Data
+================================ */
+
+.no-data {
+  padding: 30px !important;
+
+  text-align: center;
+
+  color: var(--text-light) !important;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+  .page-header {
+    align-items: flex-start;
+  }
+
+  .page-header-content h2 {
+    font-size: 22px;
+  }
+
+  .page-header-content p {
+    font-size: 13px;
+  }
+
+  .search-box input {
+    max-width: 100%;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+}

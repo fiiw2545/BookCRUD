@@ -1,0 +1,127 @@
+/* ================================
+   Login Container
+================================ */
+
+.login-container {
+  width: 100%;
+  margin: 80px auto;
+}
+
+/* ================================
+   Login Header
+================================ */
+
+.login-card .page-header {
+  display: block;
+  text-align: center;
+}
+
+.login-card .page-header h2 {
+  margin: 0 0 8px;
+}
+
+.login-card .page-header p {
+  margin: 0;
+}
+
+/* ================================
+   Form Group
+================================ */
+
+.login-form-group {
+  margin-bottom: 20px;
+}
+
+.login-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+/* ================================
+   Validation
+================================ */
+
+.validation-error {
+  margin: 6px 0 0;
+
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+/* ================================
+   Login Button
+================================ */
+
+.login-button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* ================================
+   Success Message
+================================ */
+
+.login-success {
+  margin-top: 15px;
+
+  padding: 12px 15px;
+
+  background-color: #dcfce7;
+
+  border: 1px solid #bbf7d0;
+
+  border-radius: 8px;
+
+  color: #166534;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+/* ================================
+   Error Message
+================================ */
+
+.login-error {
+  margin-top: 15px;
+
+  padding: 12px 15px;
+
+  background-color: #fee2e2;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 8px;
+
+  color: #991b1b;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .login-container {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-container {
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+}

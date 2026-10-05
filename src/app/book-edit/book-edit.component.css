@@ -1,0 +1,105 @@
+/* ================================
+   Book Edit
+================================ */
+
+/* Title */
+
+.book-edit-title {
+  margin: 20px 0 25px;
+
+  text-align: center;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+/* Form */
+
+.book-form {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 30px;
+
+  background-color: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Readonly ID */
+
+.book-form input:read-only {
+  background-color: #f3f4f6;
+
+  color: var(--text-light);
+
+  cursor: not-allowed;
+}
+
+/* Error */
+
+.error-message {
+  margin: 6px 0 0;
+
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+/* Loading */
+
+.edit-loading {
+  text-align: center;
+
+  padding: 30px;
+
+  color: var(--text-light);
+}
+
+/* Buttons */
+
+.form-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .book-edit-title {
+    font-size: 22px;
+
+    margin-top: 10px;
+  }
+
+  .book-form {
+    padding: 20px;
+
+    border-radius: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}

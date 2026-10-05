@@ -1,0 +1,45 @@
+<div class="page-container">
+  <div class="breadcrumb">
+    <a [routerLink]="['/book']"> ← Back to Home </a>
+  </div>
+  <!-- Header -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>Admin Dashboard</h2>
+      <p>จัดการข้อมูลระบบ</p>
+    </div>
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="admin-grid">
+    <!-- Users -->
+    <div class="card admin-card" [routerLink]="['/user']">
+      <div class="admin-card-icon user-icon">👤</div>
+
+      <div class="admin-card-content">
+        <h3>Users</h3>
+        <p>จัดการข้อมูลผู้ใช้งาน</p>
+      </div>
+
+      <div class="admin-card-footer">
+        <span>Manage Users</span>
+        <span class="admin-arrow">→</span>
+      </div>
+    </div>
+
+    <!-- Books -->
+    <div class="card admin-card" [routerLink]="['/book']">
+      <div class="admin-card-icon book-icon">📚</div>
+
+      <div class="admin-card-content">
+        <h3>Books</h3>
+        <p>จัดการข้อมูลหนังสือ</p>
+      </div>
+
+      <div class="admin-card-footer">
+        <span>Manage Books</span>
+        <span class="admin-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="page-container">
+  <h2 class="book-edit-title">Edit Book</h2>
+  @if (errorMessage) {
+    <div class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (isLoading) {
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">กำลังโหลดข้อมูลหนังสือ...</div>
+    </div>
+  } @else {
+    <form [formGroup]="bookForm" (ngSubmit)="editBook()" class="book-form">
+      <!-- ID -->
+      <div class="form-group">
+        <label>ID</label>
+
+        <input type="number" class="form-input" formControlName="id" readonly />
+      </div>
+
+      <!-- ISBN -->
+      <div class="form-group">
+        <label>ISBN</label>
+
+        <input type="text" class="form-input" formControlName="isbn" />
+
+        @if (
+          bookForm.controls.isbn.touched &&
+          bookForm.controls.isbn.hasError("required")
+        ) {
+          <p class="error-message">กรุณากรอก ISBN</p>
+        }
+      </div>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label>Name</label>
+
+        <input type="text" class="form-input" formControlName="name" />
+
+        @if (
+          bookForm.controls.name.touched &&
+          bookForm.controls.name.hasError("required")
+        ) {
+          <p class="error-message">กรุณากรอก Name</p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+
+        <select class="form-select" formControlName="categoryId">
+          <option value="0">-- Select Category --</option>
+
+          @for (category of categories; track category.id) {
+            <option [value]="category.id">
+              {{ category.name }}
+            </option>
+          }
+        </select>
+
+        @if (
+          bookForm.controls.categoryId.touched &&
+          bookForm.controls.categoryId.hasError("min")
+        ) {
+          <p class="error-message">กรุณาเลือก Category</p>
+        }
+      </div>
+
+      <!-- Price -->
+      <div class="form-group">
+        <label>Price</label>
+
+        <input type="number" class="form-input" formControlName="price" />
+
+        @if (
+          bookForm.controls.price.touched &&
+          bookForm.controls.price.hasError("required")
+        ) {
+          <p class="error-message">กรุณากรอก Price</p>
+        }
+
+        @if (
+          bookForm.controls.price.touched &&
+          bookForm.controls.price.hasError("min")
+        ) {
+          <p class="error-message">Price ต้องมากกว่า 0</p>
+        }
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" [disabled]="isSaving">
+          {{ isSaving ? "Saving..." : "Save" }}
+        </button>
+
+        <button type="button" class="btn btn-secondary" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  }
+</div>
