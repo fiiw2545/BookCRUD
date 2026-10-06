@@ -1,3 +1,3 @@
 export const env = {
-  apiUrl: 'https://localhost:7067/api',
+  apiUrl: 'https://bookcrud-api.onrender.com/api',
 };
